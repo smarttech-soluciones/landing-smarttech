@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Tech - Integración Tecnológica y Electricidad</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0E3A5A',      /* Azul industrial corporativo */
+                            lightBlue: '#1C5B8A', /* Tono interactivo */
+                            accent: '#00B0F0',    /* Tono eléctrico moderno */
+                            dark: '#111827',      /* Gris casi negro para fondos profundos */
+                            gray: '#374151'       /* Textos y sutiles */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: url('fotos/DSC_0414.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        /* Floating animations for subtle dynamic vibes */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased overflow-x-hidden selection:bg-brand-accent selection:text-white">
+
+    <!-- Header & Navbar -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm border-b border-gray-100" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 transition-all duration-300" id="navbar-container">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-3 cursor-pointer group">
+                    <div class="relative overflow-hidden rounded-lg shadow-sm border border-gray-100 group-hover:border-brand-accent transition-colors">
+                        <img src="fotos/Smart%20Tech%20logo%20cuadrado%20(1).jpg" alt="Smart Tech" class="h-12 w-12 object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-brand-dark group-hover:text-brand-blue transition-colors">Smart<span class="text-brand-accent">Tech</span></span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#inicio" class="text-sm font-semibold text-gray-600 hover:text-brand-accent transition-colors uppercase tracking-wider">Inicio</a>
+                    <a href="#servicios" class="text-sm font-semibold text-gray-600 hover:text-brand-accent transition-colors uppercase tracking-wider">Servicios</a>
+                    <a href="#contacto" class="text-sm font-semibold text-gray-600 hover:text-brand-accent transition-colors uppercase tracking-wider">Contacto</a>
+                </nav>
+                
+                <!-- CTA Button Desktop -->
+                <div class="hidden md:flex">
+                    <a href="https://wa.me/5493410000000" target="_blank" class="bg-brand-blue hover:bg-brand-dark text-white px-5 py-2.5 rounded text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 group">
+                        <i class="fas fa-headset group-hover:animate-pulse"></i> Asistencia Técnica
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-accent focus:outline-none transition-colors">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#inicio" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-brand-accent hover:bg-gray-50 rounded-md transition-colors border-l-4 border-transparent hover:border-brand-accent">Inicio</a>
+                <a href="#servicios" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-brand-accent hover:bg-gray-50 rounded-md transition-colors border-l-4 border-transparent hover:border-brand-accent">Nuestros Servicios</a>
+                <a href="#contacto" class="block px-3 py-3 text-base font-medium text-gray-800 hover:text-brand-accent hover:bg-gray-50 rounded-md transition-colors border-l-4 border-transparent hover:border-brand-accent">Contacto</a>
+                <a href="https://wa.me/5493410000000" target="_blank" class="block px-3 py-3 mt-4 text-center text-base font-bold text-white bg-brand-accent rounded-md shadow-md">
+                    <i class="fab fa-whatsapp mr-2"></i> Solicitar Asistencia
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative hero-bg min-h-screen flex items-center pt-20">
+        <!-- Deep Dark Overlay for contrast -->
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-brand-blue/40 z-0"></div>
+        <div class="absolute inset-0 bg-black/30 z-0"></div>
+        
+        <!-- Subtle Grid Pattern overlay -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+CjxyZWN0IHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0ibm9uZSIvPgo8cGF0aCBkPSJNMCAwbDQwIDQwWk00MCAwbC00MCA0MFoiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgc3Ryb2tlLXdpZHRoPSIxIi8+Cjwvc3ZnPg==')] z-0 opacity-50"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                
+                <div class="w-full lg:w-3/5 text-center md:text-left mt-10 md:mt-0">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-brand-accent text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></span>
+                        Ingeniería y Precisión
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6 drop-shadow-lg tracking-tight">
+                        Smart Tech<br/>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-blue-300">
+                            Integración Tecnológica<br/>y Electricidad
+                        </span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl mx-auto md:mx-0 mb-10 border-l-4 border-brand-accent pl-4">
+                        Especialista en soluciones técnicas avanzadas para hogares, oficinas y comercios en <strong class="text-white font-semibold">Rosario y alrededores</strong>. <br class="hidden lg:block"/>
+                        Combino la electricidad tradicional con la tecnología moderna para brindar un servicio técnico preciso y definitivo.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#contacto" class="bg-brand-accent hover:bg-brand-lightBlue text-white px-8 py-4 rounded font-bold text-lg transition-all duration-300 shadow-[0_0_20px_rgba(0,176,240,0.3)] hover:shadow-[0_0_25px_rgba(0,176,240,0.6)] flex items-center justify-center gap-3 transform hover:-translate-y-1">
+                            Solicitar Asistencia Técnica <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#servicios" class="bg-transparent hover:bg-white/10 text-white border border-white/30 px-8 py-4 rounded font-semibold text-lg transition-all duration-300 flex items-center justify-center gap-2 backdrop-blur-sm">
+                            Ver Servicios Especializados
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Floating decorative element hidden on small screens -->
+                <div class="hidden lg:flex w-2/5 justify-end relative z-0">
+                    <div class="w-72 h-72 border border-brand-accent/20 rounded-full absolute -top-10 -right-10 animate-pulse"></div>
+                    <div class="w-96 h-96 border border-brand-accent/10 rounded-full absolute -bottom-20 -right-20"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <a href="#servicios" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-white/50 hover:text-white transition-colors group z-20">
+            <span class="text-xs uppercase tracking-widest mb-2 group-hover:text-brand-accent">Descubrir</span>
+            <i class="fas fa-chevron-down animate-bounce text-xl"></i>
+        </a>
+    </section>
+
+    <!-- Strip Info -->
+    <section class="bg-brand-blue py-6 relative z-20 shadow-xl border-b-4 border-brand-accent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+                <div class="flex flex-col items-center justify-center p-2">
+                    <i class="fas fa-shield-alt text-brand-accent text-3xl mb-3"></i>
+                    <h4 class="text-white font-bold text-lg">Garantía de Calidad</h4>
+                    <p class="text-blue-200 text-sm mt-1">Implementaciones seguras y bajo normativa</p>
+                </div>
+                <div class="flex flex-col items-center justify-center p-2 pt-6 md:pt-2">
+                    <i class="fas fa-microchip text-brand-accent text-3xl mb-3"></i>
+                    <h4 class="text-white font-bold text-lg">Tecnología de Punta</h4>
+                    <p class="text-blue-200 text-sm mt-1">Componentes premium y automatización</p>
+                </div>
+                <div class="flex flex-col items-center justify-center p-2 pt-6 md:pt-2">
+                    <i class="fas fa-stopwatch text-brand-accent text-3xl mb-3"></i>
+                    <h4 class="text-white font-bold text-lg">Eficiencia Operativa</h4>
+                    <p class="text-blue-200 text-sm mt-1">Tiempos de respuesta y ejecución óptimos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section (Grid Alterna / Cards) -->
+    <section id="servicios" class="py-24 bg-gray-50 relative">
+        <!-- Decoracion de fondo -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20 animate-fade-in-up">
+                <h2 class="text-brand-accent font-bold tracking-widest uppercase text-sm mb-3">Nuestras Capacidades</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight mb-6">Nuestros Servicios</h3>
+                <div class="w-16 h-1.5 bg-brand-accent mx-auto rounded-full mb-6"></div>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Unidades de negocio altamente especializadas para cubrir todas las exigencias técnicas. Desde el montaje inicial hasta el mantenimiento preventivo y de campo.
+                </p>
+            </div>
+
+            <!-- The Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 gap-10">
+                
+                <!-- Servicio 1 -->
+                <div class="group flex flex-col md:flex-row bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 overflow-hidden">
+                    <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="fotos/IMG_20170917_170424208.jpg" alt="Tableros Eléctricos y Potencia" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <!-- Icon overlay -->
+                        <div class="absolute top-4 left-4 bg-brand-accent text-white w-10 h-10 flex items-center justify-center rounded shadow-lg">
+                            <i class="fas fa-bolt text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-brand-dark mb-4 group-hover:text-brand-blue transition-colors">Tableros Eléctricos y Potencia</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Armado, diseño y mantenimiento de tableros eléctricos complejos. Soluciones eficientes asegurando control absoluto, continuidad energética y protección para líneas de producción e infraestructuras.</p>
+                        <a href="#contacto" class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors mt-auto">
+                            Saber más <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="group flex flex-col md:flex-row bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 overflow-hidden">
+                    <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden md:order-last">
+                        <img src="fotos/IMG_20170915_143644555%20(1).jpg" alt="Montajes Industriales y Comerciales" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-brand-accent text-white w-10 h-10 flex items-center justify-center rounded shadow-lg md:left-auto md:right-4 left-4">
+                            <i class="fas fa-industry text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-brand-dark mb-4 group-hover:text-brand-blue transition-colors">Montajes Industriales y Comerciales</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Capacidad técnica y operativa para obras grandes. Realizamos trabajos en altura, despliegues de cableado estructurado, bandejas portacables y puestas a tierra bajo estrictas normativas vigentes.</p>
+                        <a href="#contacto" class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors mt-auto">
+                            Saber más <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="group flex flex-col md:flex-row bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 overflow-hidden lg:col-span-1">
+                    <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="fotos/DSC_0030.jpg" alt="Automatización y Domótica" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 left-4 bg-brand-accent text-white w-10 h-10 flex items-center justify-center rounded shadow-lg">
+                            <i class="fas fa-home text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-brand-dark mb-4 group-hover:text-brand-blue transition-colors">Automatización y Domótica</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Diseño de sistemas inteligentes para modernizar tu espacio. Implementación de control por contactores, sensores, PLCs y plataformas de domótica hogar/empresa para máxima eficiencia y confort.</p>
+                        <a href="#contacto" class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors mt-auto">
+                            Saber más <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="group flex flex-col md:flex-row bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 overflow-hidden lg:col-span-1">
+                    <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden md:order-last">
+                        <img src="fotos/DSC_0087.jpg" alt="Climatización de Precisión" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 bg-center">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-brand-accent text-white w-10 h-10 flex items-center justify-center rounded shadow-lg md:left-auto md:right-4 left-4">
+                            <i class="fas fa-snowflake text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <h4 class="text-2xl font-bold text-brand-dark mb-4 group-hover:text-brand-blue transition-colors">Climatización de Precisión</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Diagnóstico técnico avanzado y reparación integral de equipos de aire acondicionado. Garantizamos climatización estable y duradera para entornos residenciales y de servidores críticos.</p>
+                        <a href="#contacto" class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors mt-auto">
+                            Saber más <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Servicio 5 Centrado Abajo -->
+            <div class="mt-10 lg:mt-12 flex justify-center">
+                <div class="group flex flex-col md:flex-row bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-all duration-300 border border-gray-100 overflow-hidden lg:w-2/3">
+                    <div class="md:w-2/5 h-64 md:h-auto relative overflow-hidden">
+                        <img src="fotos/DSC_0430.jpg" alt="Infraestructura en Campo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-brand-blue/20 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <div class="absolute top-4 left-4 bg-brand-accent text-white w-10 h-10 flex items-center justify-center rounded shadow-lg">
+                            <i class="fas fa-network-wired text-lg"></i>
+                        </div>
+                    </div>
+                    <div class="md:w-3/5 p-8 flex flex-col justify-center">
+                        <div class="inline-block px-3 py-1 bg-brand-blue/10 text-brand-blue font-semibold text-xs rounded mb-4 w-max">SERVICIO DESTACADO</div>
+                        <h4 class="text-2xl font-bold text-brand-dark mb-4 group-hover:text-brand-blue transition-colors">Infraestructura en Campo</h4>
+                        <p class="text-gray-600 mb-6 leading-relaxed">Mantenimiento preventivo, correctivo y relevamientos de infraestructura tecnológica desplegada en exteriores o ubicaciones remotas. Aseguramos la supervivencia de los gabinetes ante condiciones extremas.</p>
+                        <a href="#contacto" class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors mt-auto">
+                            Saber más <i class="fas fa-arrow-right ml-2 text-sm transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTa Final de Confianza -->
+    <section id="contacto" class="py-24 relative bg-brand-dark overflow-hidden text-center">
+        <!-- Textura tecnológica -->
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at center, #00B0F0 2px, transparent 2.5px); background-size: 30px 30px;"></div>
+        
+        <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-accent rounded-full blur-[100px] opacity-20"></div>
+        <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-blue rounded-full blur-[100px] opacity-40"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">Tu aliado estratégico local</h2>
+            <p class="text-xl text-gray-300 mb-10 leading-relaxed font-light">
+                Brindamos diagnóstico preciso y ejecución impecable para <strong class="text-white">hogares, oficinas y grandes superficies en Rosario</strong>. No dejamos lugar a la improvisación.
+            </p>
+            
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl mb-10 flex flex-col sm:flex-row justify-around items-center gap-6">
+                <div class="text-center">
+                    <i class="fab fa-whatsapp text-4xl text-green-400 mb-3 block"></i>
+                    <h5 class="text-white font-semibold">Atención Inmediata</h5>
+                    <p class="text-gray-400 text-sm mt-1">Chat directo con nuestros técnicos</p>
+                </div>
+                <div class="hidden sm:block w-px h-16 bg-white/20"></div>
+                <div class="text-center">
+                    <i class="far fa-envelope text-4xl text-brand-accent mb-3 block"></i>
+                    <h5 class="text-white font-semibold">Proyectos Complejos</h5>
+                    <p class="text-gray-400 text-sm mt-1">Envíanos tus requerimientos</p>
+                </div>
+            </div>
+
+            <a href="https://wa.me/5493410000000" target="_blank" class="inline-flex items-center justify-center bg-brand-accent hover:bg-brand-blue text-white px-10 py-4 rounded font-bold text-lg transition-all duration-300 shadow-[0_0_20px_rgba(0,176,240,0.5)] hover:shadow-2xl transform hover:scale-105">
+                <i class="fab fa-whatsapp text-2xl mr-3"></i> Iniciar Consulta Técnica
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Corporativo -->
+    <footer class="bg-[#0a1120] text-gray-400 py-16 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16">
+                <!-- Branding -->
+                <div class="md:col-span-4 lg:col-span-5">
+                    <a href="#inicio" class="flex items-center gap-3 mb-6 inline-block">
+                        <img src="fotos/Smart%20Tech%20logo%20cuadrado%20(1).jpg" alt="Smart Tech Logo" class="h-14 w-14 rounded object-cover shadow border border-gray-800 opacity-90">
+                        <span class="font-bold text-2xl tracking-tight text-white inline-block mt-2">Smart<span class="text-brand-accent">Tech</span></span>
+                    </a>
+                    <p class="text-sm leading-relaxed mb-6">
+                        Combinamos el conocimiento de la electricidad tradicional con las ventajas de la tecnología moderna, aportando soluciones industriales y domiciliarias precisas, altamente estéticas y definitivas.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-accent hover:text-white transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Enlaces -->
+                <div class="md:col-span-3 lg:col-span-3">
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Navegación</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#inicio" class="hover:text-brand-accent transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-brand-dark"></i> Inicio</a></li>
+                        <li><a href="#servicios" class="hover:text-brand-accent transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-brand-dark"></i> Servicios y Montajes</a></li>
+                        <li><a href="#contacto" class="hover:text-brand-accent transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-[10px] text-brand-dark"></i> Presupuestos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacto -->
+                <div class="md:col-span-5 lg:col-span-4">
+                    <h4 class="text-white font-bold mb-6 text-sm uppercase tracking-widest">Información de Contacto</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded bg-brand-blue/30 flex items-center justify-center flex-shrink-0 text-brand-accent mt-0.5"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <span class="block text-white font-medium mb-1">Área de Cobertura</span>
+                                Rosario y alrededores, Provincia de Santa Fe, Argentina.
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded bg-brand-blue/30 flex items-center justify-center flex-shrink-0 text-brand-accent"><i class="fab fa-whatsapp"></i></div>
+                            <div>
+                                <a href="https://wa.me/5493410000000" target="_blank" class="hover:text-white transition-colors">+54 9 341 XXX-XXXX</a>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 rounded bg-brand-blue/30 flex items-center justify-center flex-shrink-0 text-brand-accent"><i class="far fa-envelope"></i></div>
+                            <div>
+                                <a href="mailto:info@smarttech.com.ar" class="hover:text-white transition-colors">info@smarttech.com.ar</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2024 Smart Tech - Integración Tecnológica y Electricidad. Todos los derechos reservados.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón Whatsapp Flotante -->
+    <a href="https://wa.me/5493410000000" target="_blank" class="fixed bottom-6 right-6 bg-[#25D366] text-white rounded-full w-14 h-14 flex items-center justify-center shadow-[0_5px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_25px_rgba(37,211,102,0.6)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all duration-300 z-50 group">
+        <i class="fab fa-whatsapp text-3xl"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-white text-gray-800 text-sm font-bold px-4 py-2 rounded-lg opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 whitespace-nowrap shadow-lg pointer-events-none border border-gray-100">
+            Consultar ahora
+            <div class="absolute top-1/2 -right-2 transform -translate-y-1/2 border-8 border-transparent border-l-white"></div>
+        </span>
+    </a>
+
+    <!-- Lógica de Interfaz -->
+    <script>
+        // Efecto scroll en Navbar
+        const navbar = document.getElementById('navbar');
+        const navbarContainer = document.getElementById('navbar-container');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                // Hacer el navbar más compacto
+                navbar.classList.add('py-2', 'bg-white/95');
+                navbar.classList.remove('bg-white/90');
+                navbarContainer.classList.replace('h-20', 'h-16');
+            } else {
+                // Volver a su tamaño original
+                navbar.classList.remove('py-2', 'bg-white/95');
+                navbar.classList.add('bg-white/90');
+                navbarContainer.classList.replace('h-16', 'h-20');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')) {
+                icon.classList.replace('fa-times', 'fa-bars');
+            } else {
+                icon.classList.replace('fa-bars', 'fa-times');
+            }
+        });
+
+        // Cerrar Mobile Menu al hacer click en un enlace
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.replace('fa-times', 'fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
